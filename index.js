@@ -1,7 +1,7 @@
 console.log("hello there from front-end");
 
 function postData(data) {
-  const url = 'http://localhost:3000/users';
+  const url = 'https://blossoms-backend-kkk.vercel.app/users';
 
   fetch(url, {
     method: 'POST',
@@ -10,9 +10,14 @@ function postData(data) {
       'Content-Type': 'application/json'
     }
   })
-    .then(response => response.text())
+    .then(response => {
+      if(response.status == 200) {
+        location.replace("/success.html")
+      }
+      return response.text()
+    })
     .then(result => {
-      console.log('Post request successful:', result);
+      alert(result);
     })
     .catch(error => {
       console.error('Error:', error);
