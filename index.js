@@ -12,7 +12,7 @@ function postData(data) {
   })
     .then(response => {
       if(response.status == 200) {
-        location.replace("/success.html")
+        location.replace("/blossoms/success.html")
       }
       return response.text()
     })
